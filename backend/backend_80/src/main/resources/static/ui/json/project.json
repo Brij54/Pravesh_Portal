@@ -1,0 +1,32 @@
+{
+
+  "project": {
+
+    "cluster" : "rasp_db",
+    "ui" : false,
+    "api" : true,
+    "fields" : {
+      "id": {
+
+        "name" : "id",
+        "required" : "true",
+        "type" : "String"
+      },
+      "name": {
+
+        "name" : "name",
+        "required" : "true",
+        "type" : "String"
+      },
+      "owner": {
+
+        "name" : "owner",
+        "required" : "true",
+        "type" : "String"
+      }
+
+    }
+  }
+
+}
+

@@ -1,0 +1,49 @@
+{
+
+  "issue": {
+
+    "cluster" : "rasp_db",
+    "ui" : false,
+    "api" : true,
+    "fields" : {
+      "id": {
+
+        "name" : "id",
+        "required" : "true",
+        "type" : "String"
+      },
+      "assign_to": {
+
+        "name" : "assign_to",
+        "required" : "true",
+        "type" : "String"
+      },
+      "tittle": {
+
+        "name" : "tittle",
+        "required" : "true",
+        "type" : "String"
+      },
+      "description": {
+
+        "name" : "description",
+        "required" : "true",
+        "type" : "String"
+      },
+
+
+      "project_id": {
+
+        "name" : "project_id",
+        "required" : "null",
+        "foreign" : {
+          "resource" :"Project"
+        },
+        "type" : "String"
+      }
+
+    }
+  }
+
+}
+

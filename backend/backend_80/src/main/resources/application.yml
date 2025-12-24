@@ -1,0 +1,71 @@
+server:
+  port: ${SERVER_PORT}
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/fdgrew
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
+            authorization-grant-type: authorization_code
+            scope: openid, profile, email
+        provider:
+          keycloak:
+            issuer-uri: ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/realms/${REALM}
+            keycloakUrl: ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/admin/realms/${REALM}
+            authorization-uri: ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/realms/${REALM}/protocol/openid-connect/auth
+            token-uri:  ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/realms/${REALM}/protocol/openid-connect/token
+            INTROSPECT_URL: ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/realms/${REALM}/protocol/openid-connect/token/introspect
+            user-info-uri: ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/realms/${REALM}/protocol/openid-connect/userinfo
+            jwk-set-uri: ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/realms/${REALM}/protocol/openid-connect/certs
+            redirectUri: ${SERVER_HOST}:${SERVER_PORT}/api/auth/callback
+            frontendURL: ${FRONTEND_URL}
+            clientId: ${CLIENT_ID}
+            clientSecret: ${CLIENT_SECRET}
+            logout-uri: ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/realms/${REALM}/protocol/openid-connect/logout
+
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_HOST}:${KEYCLOAK_PORT}/realms/${REALM}
+
+jwt:
+  auth:
+    converter:
+      resource-id: ${CLIENT_ID}
+      principle-attribute: preferred_username
+
+
+
+authentication-type: "implicit"
+
+output.dir: src/test/java/generated
+
+project_path: ${DEMO_RASP_BACKEND} #source
+content_root_package_path: \\src/main/java/com/rasp/app
+reference_package_path: com.rasp.app
+generate_resource_path: ${RASP_GENERATED_PROJECT}
+#clientId: "adi-rest-api"
+#clientSecret: "zSlPbz315NKBrAaixfTEFHP08DVyNMfh" # Replace with your actual secret
+#keycloakTokenUrl: "http://localhost:8080/realms/new/protocol/openid-connect/token"
+#keycloakUrl: "http://localhost:8080/admin/realms/new"
+#INTROSPECT_URL: "http://localhost:8080/realms/new/protocol/openid-connect/token/introspect"
+ResourcePack: "com.rasp.app.resource"
+HelperPack: "com.rasp.app.helper"
+dms:
+  host: ${DMS_HOST}
+  port: ${DMS_PORT}
+
+isScope: false
+
+
+
+
+
+

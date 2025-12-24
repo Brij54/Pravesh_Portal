@@ -1,0 +1,20 @@
+{
+
+"student": {
+
+  "cluster" : "rasp_db",
+  "ui" : false,
+  "api" : true,
+  "fields" : {
+    "id": {
+
+     "name" : "id",
+     "required" : "true",
+     "type" : "String"
+      }
+   
+  }
+ }
+
+}
+

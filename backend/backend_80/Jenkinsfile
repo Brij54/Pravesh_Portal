@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    // Corresponds to https://github.com/IIITBangalore/RASP-Backend-Generator
+    environment {
+        REGISTRY = "172.16.202.56:5000"
+        IMAGE_NAME = "${REGISTRY}/rasp-backend-generator"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Login to Private Registry') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'private-registry-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    sh """
+                        echo $PASS | docker login ${REGISTRY} -u $USER --password-stdin
+                    """
+                }
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t $IMAGE_NAME:latest ."
+                echo "[0]-- IMAGE BUILD SUCCESS. NAME = ${IMAGE_NAME}:latest"
+            }
+        }
+
+        stage('Push to Private Registry') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'private-registry-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    sh """
+                        echo $PASS | docker login ${REGISTRY} -u $USER --password-stdin
+                        docker push $IMAGE_NAME:latest
+                    """
+                }
+            }
+        }
+    }
+}
