@@ -1,0 +1,163 @@
+.data-table-container {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.table-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #495057;
+  margin: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-title-text {
+  flex: 1;
+}
+
+.table-count {
+  font-size: 14px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 12px;
+  min-width: 32px;
+  text-align: center;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table-header {
+  background-color: #004d99;
+  border-bottom: 1px solid #003d7a;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #ffffff;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort-icons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+.sort-icon {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sort-icon:hover {
+  color: #ffffff;
+}
+
+.table-cell {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e9ecef;
+  color: #495057;
+  vertical-align: top;
+}
+
+.row-even {
+  background-color: #ffffff;
+}
+
+.row-odd {
+  background-color: #f8f9fa;
+}
+
+.row-even:hover,
+.row-odd:hover {
+  background-color: #e3f2fd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .table-wrapper {
+    overflow-x: scroll;
+  }
+  
+  .data-table {
+    min-width: 600px;
+  }
+  
+  .table-header,
+  .table-cell {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .table-title {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+}
+
+/* Specific styling for different table types */
+.users-table .table-header:first-child,
+.users-table .table-cell:first-child {
+  width: 40%;
+}
+
+.users-table .table-header:last-child,
+.users-table .table-cell:last-child {
+  width: 60%;
+}
+
+.roles-table .table-header:first-child,
+.roles-table .table-cell:first-child {
+  width: 30%;
+}
+
+.roles-table .table-header:last-child,
+.roles-table .table-cell:last-child {
+  width: 70%;
+}
+
+.user-role-mapping-table .table-header:first-child,
+.user-role-mapping-table .table-cell:first-child {
+  width: 40%;
+}
+
+.user-role-mapping-table .table-header:last-child,
+.user-role-mapping-table .table-cell:last-child {
+  width: 60%;
+}
+
+.role-resource-mapping-table .table-header:nth-child(1),
+.role-resource-mapping-table .table-cell:nth-child(1) {
+  width: 25%;
+}
+
+.role-resource-mapping-table .table-header:nth-child(2),
+.role-resource-mapping-table .table-cell:nth-child(2) {
+  width: 40%;
+}
+
+.role-resource-mapping-table .table-header:nth-child(3),
+.role-resource-mapping-table .table-cell:nth-child(3) {
+  width: 35%;
+}

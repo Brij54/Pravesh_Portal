@@ -1,0 +1,344 @@
+/* View Role Resource Mapping Page Styles */
+.viewRoleResourcePage {
+  padding: 24px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.viewRoleResourceLoading,
+.viewRoleResourceError {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  text-align: center;
+}
+
+.loadingSpinner {
+  font-size: 18px;
+  color: #666;
+}
+
+.viewRoleResourceError h2 {
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.viewRoleResourceError p {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Header */
+.viewRoleResourceHeader {
+  margin-bottom: 24px;
+}
+
+.viewRoleResourcePage .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.viewRoleResourcePage .breadcrumbItem {
+  display: flex;
+  align-items: center;
+}
+
+.viewRoleResourcePage .breadcrumbItem + .breadcrumbItem::before {
+  content: '>';
+  margin: 0 8px;
+  color: #999;
+  display: inline-block;
+}
+
+/* Remove any ::after separators that might be added by other CSS */
+.viewRoleResourcePage .breadcrumbItem::after {
+  content: none !important;
+}
+
+.breadcrumbLink {
+  background: none;
+  border: none;
+  color: #004d99;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbItem.active {
+  color: #333;
+  font-weight: 500;
+}
+
+.pageTitle {
+  font-size: 32px;
+  font-weight: 400;
+  color: #333;
+  margin: 0 0 0px 0;
+}
+
+/* Content */
+.viewRoleResourceContent {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.permissionsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.roleTitle {
+  font-size: 24px;
+  font-weight: 400;
+  color: #333;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+/* Static Actions Info */
+.staticActionsInfo {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  flex-wrap: wrap;
+}
+
+.staticActionsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionLabel {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.actionItems {
+  color: #666;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  background-color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* Permissions Table */
+.permissionsTableContainer {
+  overflow-x: auto;
+  margin-bottom: 32px;
+}
+
+.permissionsTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.permissionsTable th,
+.permissionsTable td {
+  padding: 12px 16px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.permissionsTable th:last-child,
+.permissionsTable td:last-child {
+  border-right: none;
+}
+
+.permissionsTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.permissionsTable th {
+  background-color: #e8e8e8;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.resourceHeader {
+  text-align: left;
+  width: 300px;
+  background-color: #d0d0d0 !important;
+}
+
+.permissionHeader {
+  width: 120px;
+  background-color: #e8e8e8 !important;
+}
+
+.resourceCell {
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+.permissionCell {
+  text-align: center;
+  background-color: white;
+}
+
+.rowEven .resourceCell {
+  background-color: #f8f8f8;
+}
+
+.rowOdd .resourceCell {
+  background-color: #f0f0f0;
+}
+
+.rowEven .permissionCell {
+  background-color: #fff;
+}
+
+.rowOdd .permissionCell {
+  background-color: #fafafa;
+}
+
+/* Checkboxes */
+.selectAllCheckbox,
+.resourceCheckbox,
+.permissionCheckbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.resourceCell .resourceCheckbox {
+  margin-right: 12px;
+}
+
+.permissionCheckbox {
+  margin: 0;
+  transform: scale(1.2);
+}
+
+/* Save Section */
+.saveSection {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+}
+
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnPrimary {
+  background-color: #004d99;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: #003d7a;
+}
+
+.btnSave {
+  background-color: #004d99;
+  color: white;
+  min-width: 80px;
+}
+
+.btnSave:hover {
+  background-color: #003d7a;
+}
+
+.btnSave:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btnSave.hasChanges {
+  background-color: #4caf50;
+}
+
+.btnSave.hasChanges:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .viewRoleResourceContent {
+    padding: 16px;
+    margin: 0 8px;
+  }
+  
+  .pageTitle {
+    font-size: 24px;
+  }
+  
+  .roleTitle {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+  
+  .permissionsTable th,
+  .permissionsTable td {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .resourceHeader {
+    width: 200px;
+  }
+  
+  .permissionHeader {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .permissionsTable th,
+  .permissionsTable td {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  
+  .resourceHeader {
+    width: 150px;
+  }
+  
+  .permissionHeader {
+    width: 60px;
+  }
+  
+  .permissionCheckbox {
+    transform: scale(1);
+  }
+}

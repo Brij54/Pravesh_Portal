@@ -1,0 +1,139 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e9ecef;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebarHeader {
+  padding: 20px 16px;
+  border-bottom: 1px solid #e9ecef;
+  background-color: #ffffff;
+}
+
+.sidebarTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.4;
+  cursor: default;
+  text-align: center;
+}
+
+.sidebarNav {
+  padding: 0;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navItemContent {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  color: #495057;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.navItemContent:hover {
+  background-color: #e9ecef;
+  color: #004d99;
+}
+
+.navItemContent.active {
+  background-color: #004d99;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.navArrow {
+  margin-right: 8px;
+  font-size: 10px;
+  color: #6c757d;
+  transition: transform 0.2s ease;
+  display: inline-block;
+  width: 12px;
+  text-align: center;
+}
+
+.navArrow.expanded {
+  transform: rotate(0deg);
+}
+
+.navLabel {
+  flex: 1;
+}
+
+.navChildren {
+  background-color: #ffffff;
+  border-left: 2px solid #e9ecef;
+}
+
+.navItem.level-1 .navItemContent {
+  padding-left: 32px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+.navItem.level-1 .navItemContent:hover {
+  background-color: #f8f9fa;
+  color: #004d99;
+}
+
+.navItem.level-1 .navItemContent.active {
+  background-color: #e3f2fd;
+  color: #004d99;
+  font-weight: 500;
+  border-right: 3px solid #004d99;
+}
+
+/* Breadcrumb styling - scoped to sidebar context only */
+.sidebar .breadcrumb {
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.sidebar .breadcrumbItem {
+  display: inline;
+}
+
+.sidebar .breadcrumbItem + .breadcrumbItem::before {
+  content: ">";
+  margin: 0 8px;
+  color: #adb5bd;
+}
+
+.sidebar .breadcrumbItem.active {
+  color: #495057;
+  font-weight: 500;
+}
+
+.sidebar .breadcrumbLink {
+  color: #004d99;
+  text-decoration: none;
+}
+
+.sidebar .breadcrumbLink:hover {
+  text-decoration: underline;
+}
+

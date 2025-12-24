@@ -1,0 +1,372 @@
+/* Role Resource Mapping Page Styles */
+.roleResourceMappingPage {
+  flex: 1;
+  background-color: #f8f9fa;
+  width: 100%;
+}
+
+.roleResourceMappingPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.loadingSpinner {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Header */
+.roleResourceMappingHeader {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.roleResourceMappingPage .breadcrumb {
+  padding: 8px 20px 16px 20px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.roleResourceMappingPage .breadcrumbItem {
+  display: inline;
+}
+
+.roleResourceMappingPage .breadcrumbItem + .breadcrumbItem::before {
+  content: ">";
+  margin: 0 8px;
+  color: #adb5bd;
+}
+
+/* Remove any duplicate separators */
+.roleResourceMappingPage .breadcrumbItem::after {
+  content: none !important;
+}
+
+.breadcrumbLink {
+  color: #004d99;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbItem.active {
+  color: #495057;
+  font-weight: 500;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #495057;
+  margin: 0;
+  padding: 20px 20px 8px 20px;
+}
+
+/* Content */
+.roleResourceMappingContent {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 24px;
+}
+
+/* Controls */
+.rolesControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.searchContainer {
+  flex: 1;
+  max-width: 400px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #004d99;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnPrimary {
+  background-color: #004d99;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: #003d7a;
+}
+
+/* Table */
+.rolesTableContainer {
+  overflow-x: auto;
+}
+
+.rolesTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.rolesTable th,
+.rolesTable td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.rolesTable th {
+  background-color: #f8f9fa;
+  font-weight: 500;
+  color: #333;
+  position: sticky;
+  top: 0;
+}
+
+.checkboxColumn {
+  width: 50px;
+  text-align: center;
+}
+
+.sortableHeader {
+  cursor: pointer;
+  user-select: none;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sortIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sortIcon {
+  font-size: 10px;
+  color: #999;
+  line-height: 1;
+}
+
+.rolesTable tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.rowEven {
+  background-color: #fff;
+}
+
+.rowOdd {
+  background-color: #fafafa;
+}
+
+.roleLink {
+  background: none;
+  border: none;
+  color: #004d99;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+}
+
+.role-link:hover {
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+  background-color: #f5f5f5;
+}
+
+.modalBody {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.formInput:focus {
+  border-color: #2196f3;
+}
+
+.formInput:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.btnSecondary {
+  /* background-color: #f5f5f5;
+  color: #333; */
+}
+
+/* .btn-secondary:hover:not(:disabled) {
+  background-color: #e0e0e0;
+} */
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .rolesControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .searchContainer {
+    max-width: none;
+  }
+  
+  .roleResourceMappingContent {
+    padding: 16px;
+  }
+  
+  .pageTitle {
+    font-size: 20px;
+    padding: 8px 16px 16px 16px;
+  }
+  
+  .breadcrumb {
+    padding: 12px 16px 6px 16px;
+    font-size: 13px;
+  }
+  
+  .rolesTable th,
+  .rolesTable td {
+    padding: 8px 12px;
+  }
+
+  .modalContent {
+    width: 95%;
+    margin: 20px;
+  }
+}
