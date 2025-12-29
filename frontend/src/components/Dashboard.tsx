@@ -7,7 +7,9 @@ import { logout } from "../apis/backend";
 
 export default function Dashboard() {
   const navigate = useNavigate();
+
   const [showDropdown, setShowDropdown] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const handleLogout = async () => {
     const ok = await logout();
@@ -16,16 +18,19 @@ export default function Dashboard() {
 
   return (
     <div className="dash-layout">
-      {/* Sidebar (always visible) */}
-      <SidebarAdmin sidebarCollapsed={false} />
+      <SidebarAdmin
+        sidebarCollapsed={sidebarCollapsed}
+        toggleSidebar={() => setSidebarCollapsed((p) => !p)}
+      />
 
-      {/* Main */}
-      <div className="dash-wrapper">
-        {/* Header */}
+      <div
+        className={`dash-wrapper ${
+          sidebarCollapsed ? "dash-wrapper-collapsed" : ""
+        }`}
+      >
         <header className="dash-header">
           <h1 className="dash-page-title">Dashboard</h1>
 
-          {/* Profile */}
           <div className="dash-user-profile">
             <div
               className="dash-profile-circle"
@@ -36,7 +41,7 @@ export default function Dashboard() {
 
             {showDropdown && (
               <div className="dash-profile-dropdown">
-                <button onClick={handleLogout}>
+                <button onClick={handleLogout} type="button">
                   <LogOut size={16} />
                   <span>Logout</span>
                 </button>
@@ -45,12 +50,12 @@ export default function Dashboard() {
           </div>
         </header>
 
-        {/* Content */}
         <div className="dash-content-body">
           <div className="dash-action-cards">
             <button
               className="dash-action-card primary"
               onClick={() => navigate("/admission-drives")}
+              type="button"
             >
               Admission Drives
             </button>
@@ -58,6 +63,7 @@ export default function Dashboard() {
             <button
               className="dash-action-card success"
               onClick={() => navigate("/shortlist")}
+              type="button"
             >
               Shortlist
             </button>
@@ -65,6 +71,7 @@ export default function Dashboard() {
             <button
               className="dash-action-card info"
               onClick={() => navigate("/analytics")}
+              type="button"
             >
               Analytics
             </button>
