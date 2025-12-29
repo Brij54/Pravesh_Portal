@@ -1,0 +1,38 @@
+{
+
+"user_round_map": {
+
+  "cluster" : "rasp_db",
+  "ui" : false,
+  "api" : true,
+  "fields" : {
+    "id": {
+
+     "name" : "id",
+     "required" : "true",
+     "type" : "String"
+     },
+    "user_id": {
+
+     "name" : "user_id",
+     "required" : "true",
+     "foreign" : {
+      "resource" : "Users" 
+      },
+     "type" : "String"
+     },
+    "round_id": {
+
+     "name" : "round_id",
+     "required" : "true",
+     "foreign" : {
+      "resource" : "Rounds" 
+      },
+     "type" : "String"
+      }
+   
+  }
+ }
+
+}
+

@@ -1,0 +1,44 @@
+{
+
+"drive": {
+
+  "cluster" : "rasp_db",
+  "ui" : false,
+  "api" : true,
+  "fields" : {
+    "id": {
+
+     "name" : "id",
+     "required" : "true",
+     "type" : "String"
+     },
+    "name": {
+
+     "name" : "name",
+     "required" : "true",
+     "type" : "String"
+     },
+    "startdate": {
+
+     "name" : "startdate",
+     "required" : "true",
+     "type" : "Date"
+     },
+    "enddate": {
+
+     "name" : "enddate",
+     "required" : "true",
+     "type" : "Date"
+     },
+    "details": {
+
+     "name" : "details",
+     "required" : "false",
+     "type" : "String"
+      }
+   
+  }
+ }
+
+}
+

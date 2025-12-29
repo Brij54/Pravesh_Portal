@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import LoginPage from '../pages/auth/LoginPage';
 import { DataProvider } from '../context/DataContext';
-import Sidebar from './layout/Sidebar';
+// import Sidebar from './layout/Sidebar';
 import LogoutButton from './LogoutButton';
 import Dashboard from './Dashboard';
 import UsersPage from './Registration/UsersPage';
@@ -82,10 +82,10 @@ const AppContent: React.FC = () => {
     return (
         <DataProvider>
             <div className={appComponentCCss.app}>
-                <Sidebar
+                {/* <Sidebar
                     activeItem={activeNavItem}
                     onItemClick={handleNavItemClick}
-                />
+                /> */}
                 <LogoutButton />
                 <main className={appComponentCCss.mainContent}>
                      <Routes>

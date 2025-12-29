@@ -1,9 +1,131 @@
-#id-1 {
+/* Layout */
+.dash-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f9fafb;
 }
 
-#id-3 {
+/* Main wrapper */
+.dash-wrapper {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.3s ease;
 }
 
-#id-5 {
+/* Sidebar collapsed */
+.dash-wrapper-collapsed {
+  margin-left: 0;
+  width: 100%;
 }
 
+/* Header */
+.dash-header {
+  height: 70px;
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  color: white;
+}
+
+/* Header left */
+.dash-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Toggle button */
+.dash-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #0083b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Title */
+.dash-page-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Profile */
+.dash-user-profile {
+  position: relative;
+}
+
+.dash-profile-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ff5ea8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Dropdown */
+.dash-profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 48px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  padding: 8px 12px;
+  z-index: 10;
+}
+
+.dash-profile-dropdown button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Content */
+.dash-content-body {
+  padding: 40px;
+}
+
+/* Cards */
+.dash-action-cards {
+  display: flex;
+  gap: 24px;
+}
+
+.dash-action-card {
+  width: 220px;
+  height: 150px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+.dash-action-card.primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.dash-action-card.success {
+  background: linear-gradient(135deg, #28a745, #1c7430);
+}
+
+.dash-action-card.info {
+  background: linear-gradient(135deg, #17a2b8, #117a8b);
+}

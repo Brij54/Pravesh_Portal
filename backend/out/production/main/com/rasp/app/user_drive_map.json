@@ -1,0 +1,38 @@
+{
+
+"user_drive_map": {
+
+  "cluster" : "rasp_db",
+  "ui" : false,
+  "api" : true,
+  "fields" : {
+    "id": {
+
+     "name" : "id",
+     "required" : "true",
+     "type" : "String"
+     },
+    "user_id": {
+
+     "name" : "user_id",
+     "required" : "true",
+     "foreign" : {
+      "resource" : "Users" 
+      },
+     "type" : "String"
+     },
+    "drive_id": {
+
+     "name" : "drive_id",
+     "required" : "true",
+     "foreign" : {
+      "resource" : "Drive" 
+      },
+     "type" : "String"
+      }
+   
+  }
+ }
+
+}
+

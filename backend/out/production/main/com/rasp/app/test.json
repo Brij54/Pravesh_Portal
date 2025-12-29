@@ -1,0 +1,39 @@
+{
+
+  "test": {
+
+    "cluster" : "traveler_db",
+    "ui" : false,
+    "api" : true,
+    "fields" : {
+      "id": {
+
+        "name" : "id",
+        "required" : "true",
+        "type" : "String"
+      },
+      "name": {
+
+        "name" : "name",
+        "required" : "true",
+        "type" : "String"
+      },
+      "course_id": {
+
+        "name" : "course_id",
+        "required" : "false",
+        "type" : "String"
+      },
+      "file": {
+
+        "name" : "file",
+        "required" : "false",
+        "is_file" : "true",
+        "type" : "String"
+      }
+
+    }
+  }
+
+}
+
