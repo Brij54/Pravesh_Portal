@@ -1,0 +1,32 @@
+{
+
+"users": {
+
+  "cluster" : "rasp_db",
+  "ui" : false,
+  "api" : true,
+  "fields" : {
+    "id": {
+
+     "name" : "id",
+     "required" : "true",
+     "type" : "String"
+     },
+    "user_name": {
+
+     "name" : "user_name",
+     "required" : "true",
+     "type" : "String"
+     },
+    "user_email": {
+
+     "name" : "user_email",
+     "required" : "true",
+     "type" : "String"
+      }
+   
+  }
+ }
+
+}
+

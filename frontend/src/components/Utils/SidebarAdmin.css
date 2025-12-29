@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* SIDEBAR */
+.ps-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: 2px 0 18px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  z-index: 1000;
+}
+
+.ps-sidebar.ps-collapsed {
+  transform: translateX(-100%);
+}
+
+/* 🔥 TOGGLE BUTTON */
+.ps-toggle {
+  position: fixed;
+  top: 18px;
+  left: 260px; /* sidebar ke right edge */
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transition: left 0.3s ease;
+}
+
+.ps-toggle.ps-collapsed {
+  left: 16px; /* jab sidebar band */
+}
+
+/* LOGO */
+.ps-logo {
+  text-align: center;
+  padding: 24px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.ps-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ps-logo-circle img {
+  width: 90%;
+  height: auto;
+}
+
+/* COLLEGE NAME */
+.ps-institute {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #444;
+}
+
+/* NAV */
+.ps-nav {
+  padding: 12px 0;
+}
+
+.ps-nav-item {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.ps-nav-item:hover {
+  background: #f4f6f8;
+}
+
+.ps-nav-icon svg {
+  color: #2196f3;
+}
+
+.ps-nav-text {
+  font-weight: 500;
+}
