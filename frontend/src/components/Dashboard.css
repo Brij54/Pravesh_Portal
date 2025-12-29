@@ -1,22 +1,26 @@
 :root {
-  --sidebar-width: 260px;
+  --sidebar-expanded: 260px;
+  --sidebar-collapsed: 92px;
 }
 
+/* Layout */
 .dash-layout {
   display: flex;
   min-height: 100vh;
   background: #f9fafb;
 }
 
+/* Main wrapper */
 .dash-wrapper {
-  margin-left: 260px;
-  width: calc(100% - 260px);
-  transition: all 0.3s ease;
+  margin-left: var(--sidebar-expanded);
+  width: calc(100% - var(--sidebar-expanded));
+  transition: margin-left 0.25s ease, width 0.25s ease;
 }
 
+/* ✅ YouTube-style collapsed */
 .dash-wrapper-collapsed {
-  margin-left: 0;
-  width: 100%;
+  margin-left: var(--sidebar-collapsed);
+  width: calc(100% - var(--sidebar-collapsed));
 }
 
 /* Header */
@@ -31,42 +35,6 @@
   position: sticky;
   top: 0;
   z-index: 5;
-}
-
-/* Header left */
-.dash-header-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-/* Toggle button */
-.dash-toggle-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: none;
-  background: white;
-  color: #0083b0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-/* burger icon */
-.dash-burger {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.dash-burger span {
-  width: 18px;
-  height: 2px;
-  background: #0083b0;
-  border-radius: 2px;
 }
 
 /* Title */

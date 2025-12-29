@@ -1,24 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-
 :root {
   --sb-expanded: 260px;
   --sb-collapsed: 92px;
 }
 
-/* Sidebar container */
+/* Sidebar */
+.yt-logo-inline {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
 .yt-sidebar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: var(--sb-expanded);
+  width: 260px;
   background: #fff;
   border-right: 1px solid #eee;
+  transition: width 0.25s ease;
   z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  transition: width 0.2s ease;
-  font-family: "Poppins", sans-serif;
+}
+
+.yt-sidebar.collapsed {
+  width: 92px;
 }
 
 .yt-sidebar.collapsed {
@@ -34,10 +40,10 @@
   padding: 0 14px;
 }
 
-/* Hamburger */
+/* Toggle */
 .yt-menu-btn {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: none;
   background: transparent;
@@ -50,50 +56,26 @@
   background: #f2f2f2;
 }
 
-/* Brand */
-.yt-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.yt-brand-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
+/* Logo next to toggle */
+.yt-logo-inline {
+  width: 38px;
+  height: 38px;
   object-fit: contain;
+  cursor: pointer;
 }
 
-.yt-brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.yt-brand-title {
-  font-weight: 700;
-  font-size: 16px;
-  color: #111;
-}
-
-.yt-brand-subtitle {
-  font-size: 12px;
-  color: #666;
-}
-
-/* Institute block under top */
+/* Institute name */
 .yt-institute {
-  padding: 0 16px 12px 16px;
-  font-size: 13px;
+  text-align: center;
+  padding: 6px 16px 14px;
+  font-size: 13.5px;
   line-height: 1.5;
-  font-weight: 500;
-  color: #444;
+  font-weight: 600;
+  color: #333;
   border-bottom: 1px solid #eee;
 }
 
-/* Nav container */
+/* Nav */
 .yt-nav {
   padding: 10px 8px;
   display: flex;
@@ -102,7 +84,6 @@
   overflow-y: auto;
 }
 
-/* Item expanded */
 .yt-item {
   width: 100%;
   border: none;
@@ -123,8 +104,8 @@
 }
 
 .yt-item.active {
-  background: #f2f2f2; /* active like YouTube */
-  font-weight: 600;
+  background: #f2f2f2;
+  font-weight: 650;
 }
 
 .yt-icon {
@@ -133,7 +114,11 @@
   justify-content: center;
 }
 
-/* Collapsed: icon top, mini label below */
+.yt-text {
+  white-space: nowrap;
+}
+
+/* Collapsed */
 .yt-item.icon-only {
   flex-direction: column;
   gap: 6px;
@@ -141,14 +126,8 @@
   justify-content: center;
 }
 
-.yt-text {
-  white-space: nowrap;
-}
-
 .yt-mini-text {
   font-size: 11px;
   color: #111;
-  line-height: 1;
   text-align: center;
-  max-width: 80px;
 }

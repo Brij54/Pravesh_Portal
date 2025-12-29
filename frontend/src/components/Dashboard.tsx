@@ -54,7 +54,7 @@ export default function Dashboard() {
           <div className="dash-action-cards">
             <button
               className="dash-action-card primary"
-              onClick={() => navigate("/admission-drives")}
+              onClick={() => navigate("/createdrive")}
               type="button"
             >
               Admission Drives
