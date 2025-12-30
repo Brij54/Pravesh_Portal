@@ -60,19 +60,9 @@ export default function CreateDrive() {
 
         {/* Page Content */}
         <div className="dash-content-body">
-          <div
-            id="id-7"
-            className="d-flex flex-column border border-2 p-3 gap-2 mb-3"
-          >
             <CreateDrives />
-          </div>
 
-          <div
-            id="id-11"
-            className="d-flex flex-column border border-2 p-3 gap-2"
-          >
             <ReadDrive />
-          </div>
         </div>
       </div>
     </div>

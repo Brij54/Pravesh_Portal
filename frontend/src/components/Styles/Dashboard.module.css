@@ -1,0 +1,926 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Base responsive units and viewport settings */
+:root {
+  --sidebar-width: min(280px, 25vw);
+  --sidebar-collapsed-width: 0px;
+  --content-padding: clamp(15px, 3vw, 30px);
+  --border-radius: clamp(8px, 1vw, 12px);
+  --font-size-base: clamp(13px, 1.2vw, 14px);
+  --font-size-title: clamp(20px, 2.5vw, 25px);
+}
+
+/* Page12 specific styles - scoped with CSS Modules */
+.page12Container {
+  background: #ffffff;
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
+.page12Container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(180px, 25vh, 250px);
+  background: linear-gradient(135deg, #00BCD4 0%, #03A9F4 100%);
+  border-radius: 0 0 50% 50%;
+  transform: scaleX(1.2) translateY(-20px);
+  z-index: 0;
+}
+
+/* Menu Toggle Button - Responsive positioning */
+.menuToggleBtn {
+  position: fixed;
+  top: clamp(15px, 2vh, 20px);
+  left: var(--sidebar-width);
+  width: clamp(35px, 4vw, 40px);
+  height: clamp(35px, 4vw, 40px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 188, 212, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+}
+
+.menuToggleBtn:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateX(-50%) scale(1.05);
+}
+
+.menuToggleBtn.sidebarCollapsed {
+  left: clamp(15px, 3vw, 25px);
+  background: rgba(0, 188, 212, 0.95);
+  border-color: rgba(0, 188, 212, 0.3);
+  transform: none;
+}
+
+.menuToggleBtn.sidebarCollapsed:hover {
+  background: rgba(0, 188, 212, 1);
+  transform: scale(1.05);
+}
+
+/* Hamburger Icon - Responsive sizing */
+.hamburgerIcon {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2px, 0.3vw, 3px);
+  width: clamp(14px, 1.5vw, 16px);
+  height: clamp(10px, 1.2vw, 12px);
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: clamp(1.5px, 0.2vw, 2px);
+  background-color: #00BCD4;
+  border-radius: 1px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menuToggleBtn.sidebarCollapsed .hamburgerLine {
+  background-color: white;
+}
+
+/* Sidebar - Fully responsive */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0;
+  border: none;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.uploadBtn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 40px; /* 👈 Adds space from the left */
+}
+
+.uploadBtn:hover {
+  background: linear-gradient(135deg, #0056b3, #003f8a);
+  box-shadow: 0 6px 14px rgba(0, 86, 179, 0.4);
+  transform: translateY(-2px);
+}
+
+.uploadBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 86, 179, 0.3);
+}
+
+.pageFormContainer {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  padding: 40px 50px;
+  margin: 30px;
+  flex-grow: 1;
+  width: auto;
+}
+
+.contentHeader {
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.profileCircle {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  color: #0083b0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+hr, .border-line, .divider {
+  display: none;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+  min-width: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+/* Logo Section - Responsive */
+.logoSection {
+  padding: clamp(20px, 3vh, 30px) clamp(15px, 2vw, 20px) clamp(15px, 2.5vh, 25px) clamp(15px, 2vw, 20px);
+  border-bottom: 1px solid rgba(229, 229, 229, 0.3);
+  text-align: center;
+  background: transparent;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed .logoSection {
+  padding: clamp(15px, 2.5vh, 25px) clamp(15px, 2vw, 20px);
+  opacity: 0;
+}
+
+.logoCircle {
+  width: clamp(50px, 6vw, 70px);
+  height: clamp(50px, 6vw, 70px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(224, 224, 224, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto clamp(10px, 1.5vh, 15px) auto;
+  backdrop-filter: blur(5px);
+}
+
+.logoText {
+  color: #666666;
+  font-weight: 600;
+  font-size: clamp(12px, 1.2vw, 14px);
+  letter-spacing: 0.5px;
+}
+
+.instituteName {
+  font-size: clamp(10px, 1vw, 12px);
+  color: #666666;
+  line-height: 1.3;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Navigation Menu - Responsive */
+.navMenu {
+  padding: clamp(10px, 1.5vh, 15px) 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed .navMenu {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navItem {
+  width: 100%;
+  padding: clamp(8px, 1.2vh, 12px) clamp(15px, 2vw, 20px);
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  color: #555555;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.navItem:hover {
+  background-color: rgba(248, 249, 250, 0.8);
+  color: #1976D2;
+}
+
+.navIcon {
+  margin-right: clamp(8px, 1.2vw, 12px);
+  font-size: clamp(14px, 1.4vw, 16px);
+  width: clamp(16px, 1.8vw, 18px);
+  display: inline-block;
+  color: #666666;
+}
+
+.navText {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Navigation Sections for Dropdowns */
+.navSection {
+  width: 100%;
+}
+
+.navDropdownHeader {
+  position: relative;
+  font-weight: 500;
+  color: #555555;
+}
+
+.dropdownArrow {
+  margin-left: auto;
+  font-size: clamp(8px, 1vw, 10px);
+  color: #888888;
+  transition: transform 0.2s ease;
+  font-weight: normal;
+}
+
+.dropdownArrow.expanded {
+  transform: rotate(180deg);
+}
+
+/* Submenu - Responsive */
+.navSubmenu {
+  background-color: transparent;
+  display: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.navSubmenu.expanded {
+  display: block;
+}
+
+.navSubitem {
+  padding: clamp(6px, 0.8vh, 8px) clamp(15px, 2vw, 20px) clamp(6px, 0.8vh, 8px) clamp(30px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  color: #666666;
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.navSubitem:hover {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #1976D2;
+}
+
+.navSubitem.active {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+  color: #1976D2;
+  font-weight: 500;
+  border-radius: 0 25px 25px 0;
+  margin-right: clamp(10px, 1.5vw, 15px);
+  backdrop-filter: blur(5px);
+}
+
+.navConnector {
+  margin-right: clamp(6px, 0.8vw, 8px);
+  color: #CCCCCC;
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: normal;
+  position: absolute;
+  left: clamp(20px, 2.5vw, 25px);
+}
+
+.navSubtext {
+  flex: 1;
+  margin-left: clamp(12px, 1.5vw, 15px);
+}
+
+/* Main Content Area - Fully responsive */
+.mainContent {
+  background: transparent;
+  height: 100vh;
+  position: relative;
+  flex: 1;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.mainContent.sidebarCollapsed {
+  margin-left: 0;
+}
+
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--content-padding);
+  transition: all 0.3s ease;
+}
+
+.mainContent.sidebarCollapsed .contentHeader {
+  padding-left: var(--content-padding);
+}
+
+.pageTitle {
+  color: #FFFFFF !important;
+  font-family: 'Kumbh Sans', sans-serif !important;
+  font-size: var(--font-size-title) !important;
+  font-weight: 500 !important;
+  line-height: 100% !important;
+  letter-spacing: 0% !important;
+  padding: clamp(15px, 2vh, 20px) 0;
+  margin-bottom: 2px;
+  margin-top: clamp(20px, 2.5vh, 25px);
+  margin-left: clamp(20px, 5vw, 55px);
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+}
+
+.profileCircle {
+  width: clamp(35px, 4vw, 40px);
+  height: clamp(35px, 4vw, 40px);
+  background: linear-gradient(45deg, #FF6B9D, #C44BC4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(196, 75, 196, 0.3);
+}
+
+.profileInitial {
+  color: white;
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 500;
+}
+
+.contentBody {
+  width: clamp(85%, 90%, 95%);
+  height: clamp(75vh, 85vh, 90vh);
+  max-height: none;
+  border-radius: var(--border-radius);
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transition: all 0.3s ease;
+}
+
+.contentBody::-webkit-scrollbar {
+  display: none;
+}
+
+.bulkUploadSection {
+  padding: clamp(15px, 2vh, 20px);
+  display: flex;
+  justify-content: flex-end;
+  padding-right: clamp(25px, 4vw, 46px);
+}
+
+.bulkUploadBtn {
+  border-radius: clamp(6px, 0.8vw, 8px);
+  font-size: clamp(12px, 1.1vw, 13px);
+  background: #00BCD4;
+  border: none;
+  padding: clamp(8px, 1vh, 10px) clamp(15px, 2vw, 20px);
+  font-weight: 500;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.bulkUploadBtn:hover {
+  background: linear-gradient(45deg, #1976D2, #1565C0);
+  transform: translateY(-1px);
+}
+
+.createStudentSection {
+  padding: clamp(15px, 2vh, 20px);
+  border: none;
+  border-bottom: 1px solid rgba(240, 240, 240, 0.5);
+  margin-bottom: clamp(60px, 10vh, 110px);
+}
+
+.searchSection {
+  padding: 0 clamp(15px, 2vh, 20px);
+  margin: clamp(10px, 1.5vh, 15px) 0;
+  gap: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.searchInput {
+  border: 1px solid #D1D5DB;
+  border-right: none;
+  border-radius: clamp(6px, 0.8vw, 8px) 0 0 clamp(6px, 0.8vw, 8px);
+  height: clamp(38px, 4.2vh, 42px);
+  padding: 0 clamp(12px, 1.6vw, 16px);
+  font-size: var(--font-size-base);
+  flex-grow: 0;
+  width: clamp(200px, 30vw, 300px);
+  min-width: clamp(200px, 25vw, 300px);
+  font-family: 'Poppins', sans-serif;
+  background: #FFFFFF;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.searchBtn {
+  background: #2196F3;
+  color: white;
+  border: 1px solid #2196F3;
+  border-left: 1px solid #2196F3;
+  border-radius: 0 clamp(6px, 0.8vw, 8px) clamp(6px, 0.8vw, 8px) 0;
+  height: clamp(38px, 4.2vh, 42px);
+  width: clamp(45px, 5vw, 50px);
+  padding: 0;
+  font-size: clamp(14px, 1.6vw, 16px);
+  font-weight: 400;
+  margin: 0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchBtn:hover {
+  background: #2196F3;
+  border-color: #2196F3;
+  transform: translateY(-1px);
+}
+
+.refreshBtn {
+  background: #2196F3;
+  color: white;
+  border: 1px solid #2196F3;
+  border-radius: clamp(6px, 0.8vw, 8px);
+  height: clamp(38px, 4.2vh, 42px);
+  width: clamp(45px, 5vw, 50px);
+  padding: 0;
+  font-size: clamp(14px, 1.6vw, 16px);
+  font-weight: 400;
+  margin: 0 0 0 clamp(6px, 0.8vw, 8px);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refreshBtn:hover {
+  background: #2196F3;
+  border-color: #2196F3;
+  transform: translateY(-1px);
+}
+
+.readStudentSection {
+  padding: clamp(15px, 2vh, 20px);
+  border: none;
+  padding-top: 0;
+  margin-top: clamp(30px, 4vh, 40px);
+}
+
+/* Responsive Design - Comprehensive breakpoints */
+@media (max-width: 1200px) {
+  :root {
+    --sidebar-width: min(260px, 28vw);
+    --content-padding: clamp(12px, 2.5vw, 25px);
+  }
+  
+  .pageTitle {
+    margin-left: clamp(15px, 4vw, 40px) !important;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --sidebar-width: min(240px, 30vw);
+    --content-padding: clamp(10px, 2vw, 20px);
+  }
+  
+  .searchInput {
+    width: clamp(180px, 35vw, 250px);
+    min-width: clamp(180px, 30vw, 250px);
+  }
+  
+  .bulkUploadSection {
+    padding-right: clamp(20px, 3vw, 35px);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: min(220px, 35vw);
+    --content-padding: clamp(8px, 1.5vw, 15px);
+    --font-size-base: clamp(12px, 1.4vw, 13px);
+    --font-size-title: clamp(18px, 3vw, 22px);
+  }
+  
+  .menuToggleBtn {
+    width: clamp(32px, 5vw, 38px);
+    height: clamp(32px, 5vw, 38px);
+  }
+  
+  .menuToggleBtn.sidebarCollapsed {
+    left: clamp(10px, 2vw, 15px);
+  }
+  
+  .contentBody {
+    width: clamp(90%, 95%, 98%);
+    height: clamp(70vh, 80vh, 85vh);
+  }
+  
+  .searchInput {
+    width: clamp(150px, 40vw, 200px);
+    min-width: clamp(150px, 35vw, 200px);
+  }
+  
+  .searchSection {
+    flex-wrap: wrap;
+    gap: clamp(8px, 1vh, 10px);
+  }
+  
+  .pageTitle {
+    margin-left: clump(10px, 3vw, 25px) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --sidebar-width: min(200px, 40vw);
+    --content-padding: clamp(6px, 1.2vw, 12px);
+    --font-size-base: clamp(11px, 1.6vw, 12px);
+    --font-size-title: clamp(16px, 3.5vw, 20px);
+  }
+  
+  .menuToggleBtn {
+    width: clamp(30px, 6vw, 35px);
+    height: clamp(30px, 6vw, 35px);
+  }
+  
+  .contentBody {
+    width: clamp(95%, 98%, 100%);
+    height: clamp(65vh, 75vh, 80vh);
+    border-radius: clamp(4px, 0.6vw, 8px);
+  }
+  
+  .searchSection {
+    justify-content: center;
+    padding: 0 clamp(10px, 1.5vh, 15px);
+  }
+  
+  .searchInput {
+    width: clamp(120px, 45vw, 180px);
+    min-width: clamp(120px, 40vw, 180px);
+  }
+  
+  .bulkUploadSection {
+    justify-content: center;
+    padding-right: clamp(15px, 2vw, 25px);
+  }
+  
+  .createStudentSection {
+    margin-bottom: clamp(40px, 8vh, 80px);
+  }
+  
+  .logoCircle {
+    width: clamp(40px, 8vw, 60px);
+    height: clamp(40px, 8vw, 60px);
+  }
+  
+  .pageTitle {
+    margin-left: clamp(8px, 2vw, 20px) !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --sidebar-width: min(180px, 45vw);
+    --content-padding: clamp(5px, 1vw, 10px);
+    --font-size-base: clamp(10px, 1.8vw, 11px);
+    --font-size-title: clamp(14px, 4vw, 18px);
+  }
+  
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1002;
+    height: 100vh;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar:not(.collapsed) {
+    transform: translateX(0);
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  
+  .mainContent {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .menuToggleBtn {
+    position: fixed;
+    top: clamp(8px, 1.5vh, 15px);
+    left: clamp(8px, 1.5vw, 15px);
+    z-index: 1003;
+    width: clamp(28px, 7vw, 32px);
+    height: clamp(28px, 7vw, 32px);
+  }
+  
+  .menuToggleBtn.sidebarCollapsed {
+    left: clamp(8px, 1.5vw, 15px);
+  }
+  
+  .contentBody {
+    width: clamp(98%, 100%, 100%);
+    margin: 0 auto;
+    border-radius: clamp(2px, 0.4vw, 6px);
+  }
+  
+  .contentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(8px, 1vh, 12px);
+  }
+  
+  .pageTitle {
+    margin-left: clamp(5px, 1vw, 15px) !important;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .userProfile {
+    align-self: flex-end;
+  }
+  
+  .searchSection {
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(6px, 1vh, 8px);
+  }
+  
+  .searchInput {
+    width: 100%;
+    min-width: 100%;
+    border-radius: clamp(4px, 0.6vw, 6px);
+    border-right: 1px solid #D1D5DB;
+  }
+  
+  .searchBtn, .refreshBtn {
+    width: 100%;
+    border-radius: clamp(4px, 0.6vw, 6px);
+    margin: 0;
+  }
+  
+  .bulkUploadSection {
+    justify-content: stretch;
+    padding: clamp(10px, 1.5vh, 15px);
+  }
+  
+  .bulkUploadBtn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --sidebar-width: min(160px, 50vw);
+    --content-padding: clamp(4px, 0.8vw, 8px);
+    --font-size-base: clamp(9px, 2vw, 10px);
+    --font-size-title: clamp(12px, 4.5vw, 16px);
+  }
+  
+  .instituteName {
+    font-size: clamp(8px, 1.2vw, 10px);
+    line-height: 1.2;
+  }
+  
+  .logoText {
+    font-size: clamp(10px, 1.4vw, 12px);
+  }
+  
+  .navItem {
+    padding: clamp(6px, 1vh, 10px) clamp(10px, 1.5vw, 15px);
+  }
+  
+  .navSubitem {
+    padding: clamp(4px, 0.6vh, 6px) clamp(10px, 1.5vw, 15px) clamp(4px, 0.6vh, 6px) clamp(25px, 3vw, 30px);
+  }
+  
+  .contentBody {
+    height: clamp(60vh, 70vh, 75vh);
+  }
+  
+  .createStudentSection {
+    margin-bottom: clamp(30px, 6vh, 60px);
+  }
+  
+  .readStudentSection {
+    margin-top: clamp(20px, 3vh, 30px);
+  }
+}
+
+/* High DPI / Retina Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logoCircle {
+    border-width: 1px;
+  }
+  
+  .hamburgerLine {
+    height: 1px;
+  }
+  
+  .contentBody {
+    border-width: 0.5px;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .contentBody {
+    height: clamp(80vh, 90vh, 95vh);
+  }
+  
+  .pageTitle {
+    margin-top: clamp(10px, 1.5vh, 15px);
+    margin-bottom: 0;
+  }
+  
+  .logoSection {
+    padding: clamp(10px, 2vh, 20px) clamp(15px, 2vw, 20px) clamp(8px, 1.5vh, 15px) clamp(15px, 2vw, 20px);
+  }
+  
+  .createStudentSection {
+    margin-bottom: clamp(30px, 5vh, 60px);
+  }
+}
+
+
+
+/* Print styles */
+@media print {
+  .sidebar {
+    display: none;
+  }
+  
+  .menuToggleBtn {
+    display: none;
+  }
+  
+  .mainContent {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .page7Container::after {
+    display: none;
+  }
+  
+  .contentBody {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    height: auto;
+    overflow: visible;
+  }
+
+  .adminActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+/* Big action cards */
+.adminActionCard {
+  width: 250px;
+  height: 200px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.adminActionCard i {
+  font-size: 4rem; /* ✅ Big icons */
+  margin-bottom: 15px;
+}
+
+.adminActionCard span {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.primaryCard {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+}
+
+.secondaryCard {
+  background: linear-gradient(135deg, #28a745, #1c7430);
+  color: white;
+}
+
+.adminActionCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+}
