@@ -5,7 +5,7 @@ import { LogOut } from "lucide-react";
 import SidebarAdmin from "./Utils/SidebarAdmin";
 import { logout } from "../apis/backend";
 
-import "./Dashboard.css";        // same dashboard layout CSS
+import "./Dashboard.css";
 import "./CreateRound.css";
 
 import CreateRounds from "./Resource/CreateRounds";
@@ -62,17 +62,11 @@ export default function CreateRound() {
 
         {/* PAGE BODY */}
         <div className="dash-content-body">
-          <div
-            id="id-1V"
-            className="d-flex flex-column border border-2 p-2 gap-2 mb-3"
-          >
+          <div className="d-flex flex-column border border-2 p-2 gap-2 mb-3">
             <CreateRounds />
           </div>
 
-          <div
-            id="id-2V"
-            className="d-flex flex-column border border-2 p-2 gap-2"
-          >
+          <div className="d-flex flex-column border border-2 p-2 gap-2">
             <ReadRounds />
           </div>
         </div>

@@ -2,7 +2,7 @@ pipeline {
     agent any
     // Corresponds to https://github.com/IIITBangalore/RASP-Backend-Generator
     environment {
-        REGISTRY = "172.16.202.56:5000"
+         = "172.16.202.56:5000"
         IMAGE_NAME = "${REGISTRY}/rasp-backend-generator"
     }
 

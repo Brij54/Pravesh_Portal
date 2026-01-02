@@ -1,4 +1,6 @@
 package com.rasp.app;
+import com.rasp.app.decorator.RoundsDecorator;
+import platform.decorator.DecoratorManager;
 import platform.helper.HelperManager;
 import platform.webservice.ServiceManager;
 import com.rasp.app.helper.*;
@@ -25,5 +27,6 @@ public class Registry {
 				 ServiceManager.getInstance().register(new UsersService());
 				 ServiceManager.getInstance().register(new UserDriveMapService());
 				 ServiceManager.getInstance().register(new UserRoundMapService());
+                 DecoratorManager.getInstance().register(new RoundsDecorator());
 		}
 }
