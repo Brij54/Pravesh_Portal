@@ -102,8 +102,6 @@ import java.util.Collections;
 import java.util.Map;
 
 public class RoundsDecorator extends BaseDecorator {
-
-    // Frontend will call: /api/rounds?queryId=GET_DRIVE_OPTIONS
     public static final String Q_GET_DRIVE_OPTIONS = "GET_DRIVE_OPTIONS";
 
     public RoundsDecorator() {
