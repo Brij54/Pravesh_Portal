@@ -5,7 +5,7 @@ import { LogOut } from "lucide-react";
 import SidebarAdmin from "./Utils/SidebarAdmin";
 import { logout } from "../apis/backend";
 
-import "./Dashboard.css";        // same dashboard layout CSS
+import "./Dashboard.css";
 import "./CreateRound.css";
 
 import CreateRounds from "./Resource/CreateRounds";
